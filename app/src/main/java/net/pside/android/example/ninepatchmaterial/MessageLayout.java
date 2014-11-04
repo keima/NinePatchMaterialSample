@@ -52,58 +52,21 @@ public class MessageLayout extends FrameLayout {
                 Drawable.ConstantState constantState = ninePatchDrawable.getConstantState();
                 Bitmap bitmap = ConstantStateCompat.getBitmap(constantState);
 
-                // FIXME: getNinePatchInsetsのほうが良かった
-                Rect opticalInsets = new Rect();
                 if (bitmap != null) {
-                    BitmapCompat.getOpticalInsets(bitmap, opticalInsets);
+                    Rect opticalRect = BitmapCompat.getOpticalRect(bitmap);
                     Rect bounds = background.getBounds();
+                    float outlineRadius = BitmapCompat.getOutlineRadius(bitmap);
+                    float outlineAlpha = BitmapCompat.getOutlineAlpha(bitmap);
 
-                    outline.setRoundRect(bounds.left + opticalInsets.left,
-                            bounds.top + opticalInsets.top,
-                            bounds.right - opticalInsets.right,
-                            bounds.bottom - opticalInsets.bottom,
-                            20);
-                    outline.setAlpha(1.0f);
+                    outline.setRoundRect(bounds.left + opticalRect.left,
+                            bounds.top + opticalRect.top,
+                            bounds.right - opticalRect.right,
+                            bounds.bottom - opticalRect.bottom,
+                            outlineRadius);
+                    float hoge = outlineAlpha * (ninePatchDrawable.getAlpha() / 255.0f);
+                    outline.setAlpha(hoge);
                 }
             }
-//                background.getOutline(outline);
-//
-//                ((NinePatchDrawable)background).
-//
-//
-//                final Rect bounds = background.getBounds();
-//                if (bounds.isEmpty()) return;
-//
-//                final Rect outlineInsets = background..outlineRect;
-//                outline.setRoundRect(bounds.left + outlineInsets.left,
-//                        bounds.top + outlineInsets.top,
-//                        bounds.right - outlineInsets.right,
-//                        bounds.bottom - outlineInsets.bottom,
-//                        insets.outlineRadius);
-//
-//                if (ninePatchState != null) {
-//                    NinePatch.InsetStruct insets = mNinePatchState.getBitmap().getNinePatchInsets();
-//                    if (insets != null) {
-//                        final Rect outlineInsets = insets.outlineRect;
-//                        outline.setRoundRect(bounds.left + outlineInsets.left,
-//                                bounds.top + outlineInsets.top,
-//                                bounds.right - outlineInsets.right,
-//                                bounds.bottom - outlineInsets.bottom,
-//                                insets.outlineRadius);
-//                        outline.setAlpha(insets.outlineAlpha * (getAlpha() / 255.0f));
-//                        return;
-//                    }
-//                }
-//                super.getOutline(outline);
-//
-//            } else {
-//                outline.setRect(0, 0, view.getWidth(), view.getHeight());
-//                outline.setAlpha(1.0f);
-//            }
-
-            // BACKGROUND.getOutline(view, outline);
-
-
         }
     }
 }

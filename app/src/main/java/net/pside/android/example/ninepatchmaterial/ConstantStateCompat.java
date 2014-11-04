@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class ConstantStateCompat {
     public static Bitmap getBitmap(Drawable.ConstantState state) {
         try {
-            Method method = state.getClass().getMethod("getBitmap", (Class)null);
+            Method method = state.getClass().getMethod("getBitmap", (Class<?>[])null);
             Object invoke = method.invoke(state);
 
             return (Bitmap)invoke;
