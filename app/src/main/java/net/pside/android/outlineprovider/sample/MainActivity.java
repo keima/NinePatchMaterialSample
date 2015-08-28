@@ -1,10 +1,9 @@
-package net.pside.android.example.ninepatchmaterial;
+package net.pside.android.outlineprovider.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 
 public class MainActivity extends Activity {
 
@@ -13,7 +12,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

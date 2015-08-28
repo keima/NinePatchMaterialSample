@@ -1,4 +1,4 @@
-NinePatchMaterialSample
+NinePatchViewOutlineProvider
 =======================
 
 # これは何？
