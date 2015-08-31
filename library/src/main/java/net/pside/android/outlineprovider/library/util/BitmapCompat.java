@@ -1,4 +1,4 @@
-package net.pside.android.outlineprovider.util;
+package net.pside.android.outlineprovider.library.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Rect;
@@ -14,9 +14,17 @@ public class BitmapCompat {
         try {
             Method method = bitmap.getClass().getMethod("getNinePatchInsets", (Class<?>[]) null);
             Object invokedInsetStruct = method.invoke(bitmap);
+
+            // get NinePatchInsets#opticalRect field
             Field field = invokedInsetStruct.getClass().getField("opticalRect");
             return (Rect) field.get(invokedInsetStruct);
-        } catch (NoSuchMethodException | InvocationTargetException | NoSuchFieldException | IllegalAccessException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return altValue;
@@ -26,9 +34,17 @@ public class BitmapCompat {
         try {
             Method method = bitmap.getClass().getMethod("getNinePatchInsets", (Class<?>[]) null);
             Object invokedInsetStruct = method.invoke(bitmap);
+
+            // get NinePatchInsets#outlineRadius field
             Field field = invokedInsetStruct.getClass().getField("outlineRadius");
             return field.getFloat(invokedInsetStruct);
-        } catch (NoSuchMethodException | InvocationTargetException | NoSuchFieldException | IllegalAccessException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return altValue;
@@ -40,7 +56,13 @@ public class BitmapCompat {
             Object invokedInsetStruct = method.invoke(bitmap);
             Field field = invokedInsetStruct.getClass().getField("outlineAlpha");
             return field.getFloat(invokedInsetStruct);
-        } catch (NoSuchMethodException | InvocationTargetException | NoSuchFieldException | IllegalAccessException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
         return altValue;

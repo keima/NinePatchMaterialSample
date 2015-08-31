@@ -18,7 +18,7 @@
         android:elevation="5dp"
         />
 
-    <Space
+    <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="30dp"/>
 
@@ -34,7 +34,7 @@
             android:text="はろー！"/>
     </FrameLayout>
 
-    <Space
+    <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="30dp"/>
 
@@ -50,7 +50,7 @@
             android:text="へきさごん！"/>
     </FrameLayout>
 
-    <Space
+    <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="30dp"/>
 

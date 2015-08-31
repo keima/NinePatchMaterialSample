@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -12,12 +13,28 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
 dependencies {
     compile rootProject.ext.dependencies.supportAnnotations
+}
+
+publish {
+    userOrg = 'keima'
+    groupId = 'net.pside.android'
+    artifactId = 'outlineprovider'
+    publishVersion = '0.1.0'
+    desc = 'NinePatchOutlineProvider'
+    website = 'https://github.com/keima/NinePatchMaterialSample'
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
 }

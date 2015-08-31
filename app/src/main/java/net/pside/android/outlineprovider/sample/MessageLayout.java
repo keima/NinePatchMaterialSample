@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.FrameLayout;
 
-import net.pside.android.outlineprovider.NinePatchViewOutlineProvider;
+import net.pside.android.outlineprovider.library.NinePatchViewOutlineProvider;
 
 public class MessageLayout extends FrameLayout {
     private static final String TAG = "MessageLayout";
@@ -14,13 +14,6 @@ public class MessageLayout extends FrameLayout {
     public MessageLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         Log.d(TAG, "MessageLayout(): attrs:   " + attrs.toString());
-    }
-
-    public MessageLayout(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        Log.d(TAG, "MessageLayout(): attrs:   " + attrs.toString());
-        Log.d(TAG, "MessageLayout(): defAttr: " + defStyleAttr);
-        Log.d(TAG, "MessageLayout(): defRes:  " + defStyleRes);
     }
 
     @Override

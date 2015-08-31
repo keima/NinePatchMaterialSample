@@ -21,5 +21,7 @@ android {
 
 dependencies {
     compile rootProject.ext.dependencies.supportAnnotations
-    compile project(':library')
+    compile rootProject.ext.dependencies.supportV4
+
+    compile(project(':library')) { transitive = false }
 }

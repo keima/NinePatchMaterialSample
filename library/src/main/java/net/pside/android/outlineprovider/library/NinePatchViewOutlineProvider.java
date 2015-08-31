@@ -1,4 +1,4 @@
-package net.pside.android.outlineprovider;
+package net.pside.android.outlineprovider.library;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
@@ -10,8 +10,8 @@ import android.os.Build;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
-import net.pside.android.outlineprovider.util.BitmapCompat;
-import net.pside.android.outlineprovider.util.ConstantStateCompat;
+import net.pside.android.outlineprovider.library.util.BitmapCompat;
+import net.pside.android.outlineprovider.library.util.NinePatchDrawableCompat;
 
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class NinePatchViewOutlineProvider extends ViewOutlineProvider {
@@ -21,8 +21,7 @@ public class NinePatchViewOutlineProvider extends ViewOutlineProvider {
         Drawable background = view.getBackground();
         if (background != null && background instanceof NinePatchDrawable) {
             NinePatchDrawable ninePatchDrawable = (NinePatchDrawable) background;
-            Drawable.ConstantState constantState = ninePatchDrawable.getConstantState();
-            Bitmap bitmap = ConstantStateCompat.getBitmap(constantState, null);
+            Bitmap bitmap = NinePatchDrawableCompat.getBitmap(ninePatchDrawable, null);
 
             if (bitmap != null) {
                 Rect opticalRect = BitmapCompat.getOpticalRect(bitmap, new Rect(0, 0, 0, 0));
