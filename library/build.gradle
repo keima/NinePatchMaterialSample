@@ -34,7 +34,7 @@ publish {
     artifactId = 'outlineprovider'
     publishVersion = '0.1.0'
     desc = 'NinePatchOutlineProvider'
-    website = 'https://github.com/keima/NinePatchMaterialSample'
+    website = 'https://github.com/keima/NinePatchViewOutlineProvider'
     issueTracker = "${website}/issues"
     repository = "${website}.git"
 }

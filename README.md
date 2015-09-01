@@ -1,13 +1,32 @@
 NinePatchViewOutlineProvider
 =======================
 
-# これは何？
+# How to Use
 
-Android5.0から追加されたElevationを使うと美麗な影エフェクトをViewに付けることができるのですが、
-9patchをつかって複雑な図形にしていると、うまく影が生成されないので、
-気に入らないからリフレクションを使って無理矢理解決するテスト。
+Add following lines in your module's `build.gradle`.
 
-# わかったこと
+```
+repositories {
+    // use jcenter repo
+    maven {
+        url "http://dl.bintray.com/keima/maven"
+    }
+}
+
+// ...
+
+dependencies {
+    compile 'net.pside.android:outlineprovider:0.1.0'
+}
+```
+
+# What's this?
+
+Android 5.0 LollipopからViewに影をつけることが出来るようになりました。
+しかし、9patchをつかって複雑な図形にしているとうまく影が生成されないのが気に入らない為、
+リフレクションを使って無理矢理解決するという実験的ライブラリです。
+
+## Known things
 
 - 影は `Outline`クラスの値から算出される
  - Rect(矩形、四角形), Round(角の丸み), Pathクラスがつかえる
